@@ -1,0 +1,52 @@
+
+body{ 
+    height: 900px;
+    width: 550px;
+    font-family: Arial, sans-serif;
+    margin-right: auto;
+   
+}
+
+input[type=text] {
+	width : 300px;
+    padding: 5px 20px;
+	margin: 10px 0;
+	border: 1px solid black;
+	text-align: left;
+}
+
+input[type=text]:focus {
+    border-color:#333;
+}
+
+label{
+	font-size:12px;
+	font-weight:700;
+}
+
+input[type=submit] {
+	position: absolute; left: 450px; top: 400px;
+    background-color: #e7e7e7;
+    color: black;
+    border: 2px solid #555555; 
+	width: 100px;
+	height: 20px;
+}
+	
+input[id=search] {
+	position: absolute; left: 50px; top: 1000px;
+    background-color: #e7e7e7;
+    color: black;
+    border: 2px solid #555555; 
+	width: 100px;
+	height: 20px;
+}
+
+input[id=retrieve] {
+	position: absolute; left: 25px; top: 1000px;
+    background-color: #e7e7e7;
+    color: black;
+    border: 2px solid #555555; 
+	width: 500px;
+	height: 20px;
+}

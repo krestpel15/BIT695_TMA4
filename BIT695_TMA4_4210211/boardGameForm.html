@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles2.css">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Boardgame Form</title>
+
+
+<script>
+function validationEvent() {
+
+	
+	// Storing Field Values In Variables
+	var bgname = document.getElementById("boardgamename").value;
+	var sdate = document.getElementById("scheduledate").value;
+	var svenue = document.getElementById("schedulevenue").value;
+	var memberid = document.getElementById("memberid").value;
+	var score = document.getElementById("score").value;
+	
+	// Regular Expression For All Fields
+	var bgNameReg = /^[0-9A-Za-z]+$/;
+	var sdateReg = /^\d{4}-((0[1-9])|(1[012]))-((0[1-9]|[12]\d)|3[01])$/;
+	var svenueReg = /^[0-9A-Za-z]+$/;
+	var memIdReg = /^[0-9A-Za-z]+$/;
+	var scoreReg = /^[0-9]+$/;
+	
+	// Conditions
+	if (bgname !== '' && sdate !== '' && svenue !== '' && memberid !== '' && score !== ''){
+		if (!bgName.match(bgNameReg)) {
+			alert("You must enter a valid boardgame name");
+			return false;
+		}
+		
+		if (!sdate.match(sdateReg)) {
+			alert("You must enter a valid first name");
+			return false;
+		}
+		
+		if (!svenue.match(svenueReg)) {
+			alert("You must enter a valid family name");
+			return false;
+		}
+		
+		if (!memid.match(memidReg)) {
+			alert("You must enter a valid email");
+			return false;
+		}
+		
+		if (!score.match(scoreReg)) {
+			alert("You must enter a valid phone number");
+			return false;
+		}
+		
+	//	alert("All type of validation has done on OnSubmit event.");
+		console.log("All type of validation has done on OnSubmit event.");
+		return true;
+	} else {
+		alert("All fields are required.....!");
+		return false;
+	}
+	
+</script>
+
+</head>
+
+<body onload="document.getElementById('Boardgames').reset();">
+	
+		<h1>Boardgame Details</h1>
+		<form id="Boardgames"  action="http://localhost/BIT695/bg_create.php" method="post" onsubmit="return validationEvent();" >
+
+			<fieldset class="field-set">
+				<legend>Create a Game</legend>
+
+				<div class="field-group">
+				<!-- Boardgame ID should not be empty and should be Alphanumeric -->
+				<label for="boardgameid">Board Game ID:</label>
+				<input type="text" name="boardgameid" id="boardgameid" placeholder="--Boardgame ID--" disabled />
+				</div>
+
+				<div class="field-group">
+				<!-- Boardgame name should not be empty and should be a string not a number -->
+				<label for="boardGameName">Boardgame name:</label> 
+				<input type="text" name="boardgamename" id="boardgamename" size="10" maxlength="40" placeholder="--Please enter Boardgame Name--"/>
+				</div>
+				
+			</fieldset>
+			
+			<input type="submit" value="Create" />
+		</form>
+		
+		
+		<br>
+		
+		<form id="Schedule"  action="http://localhost/BIT695/sched_create.php" method="post" onsubmit="return validationEvent();" >
+
+			<fieldset class="field-set">
+				<legend>Create a Schedule</legend>
+
+				<div class="field-group">
+				<!-- Boardgame ID should not be empty and should be Alphanumeric -->
+				<label for="boardgameid">Schedule ID:</label>
+				<input type="text" name="boardgameid" id="boardgameid" placeholder="--Schedule ID--" disabled />
+				</div>
+
+				<div class="field-group">
+				<!-- Boardgame name should not be empty and should be a string not a number -->
+				<label for="scheduledate">Schedule Date:</label> 
+				<input type="text" name="scheduledate" id="scheduledate" size="10" maxlength="40" placeholder="--Please enter a Date--"/>
+				</div>
+				
+				<div class="field-group">
+				<!-- Boardgame name should not be empty and should be a string not a number -->
+				<label for="schedulevenue">Schedule Venue:</label> 
+				<input type="text" name="schedulevenue" id="schedulevenue" size="10" maxlength="40" placeholder="--Please enter a Venue--"/>
+				</div>
+				
+			</fieldset>
+			
+			<input type="submit" value="Create" />
+		</form>
+		
+		
+		<br>
+		
+		
+		<form id="Sores"  action="http://localhost/BIT695/score_create.php" method="post" onsubmit="return validationEvent();" >
+
+			<fieldset class="field-set">
+				<legend>Record Scores</legend>
+
+				<div class="field-group">
+				<!-- Score ID should not be empty and should be Alphanumeric -->
+				<label for="scoreid">Score ID:</label>
+				<input type="text" name="scoreid" id="scoreid" placeholder="--Score ID--" disabled />
+				</div>
+
+				<div class="field-group">
+				<!-- Member ID should not be empty and should be Alphanumeric -->
+				<label for="memberid">Member ID:</label> 
+				<input type="text" name="memberid" id="memberid" size="10" maxlength="40" placeholder="--Please enter your Member ID--"/>
+				</div>
+				
+				<div class="field-group">
+				<!-- Score should not be empty and should be a number -->
+				<label for="score">Score:</label> 
+				<input type="text" name="score" id="score" size="10" maxlength="40" placeholder="--Please enter your Score--"/>
+				</div>
+				
+			</fieldset>
+			
+			<input type="submit" value="Record" />
+		</form>
+		
+		<form action="http://localhost/BIT695/tma4_retrieve.php" method="POST">
+			<input type="submit" id="retrieve" value="Retrieve Tables"/>
+		</form>
+	</body>
+</html>
